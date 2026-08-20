@@ -1,0 +1,189 @@
+/* style.css — 看得見的聲音（科普列車展場版）
+   風格：專業、學術化。白底、深藍/石墨灰主色、襯線體標題、等寬數字。
+   不要卡通化、不要漸層動畫、不要 emoji。 */
+
+:root {
+  --color-bg: #ffffff;
+  --color-surface: #f6f7f8;
+  --color-border: #d8dbde;
+  --color-text: #1c2024;
+  --color-text-muted: #5a6067;
+  --color-navy: #1c3a5e;
+  --color-navy-dark: #12283f;
+  --color-accent-bg: #dbe6f0;
+  --font-serif: "Noto Serif TC", "Source Han Serif TC", Georgia, "Times New Roman", serif;
+  --font-sans: "Noto Sans TC", "Source Han Sans TC", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Cascadia Mono", Consolas, "SF Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+h1 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-navy-dark);
+  margin: 0 0 0.2em;
+}
+
+.mono, .now-playing-freq, .mode-freq, #out-volume {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+button { font-family: inherit; font-size: inherit; }
+
+/* ---------------- 版面骨架 ---------------- */
+
+.topbar {
+  text-align: center;
+  padding: 1.5rem 1rem 1.2rem;
+  border-bottom: 2px solid var(--color-navy-dark);
+}
+.topbar h1 { font-size: 2rem; }
+.plate-spec {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  letter-spacing: 0.02em;
+}
+
+#app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* ---------------- 目前頻率 ---------------- */
+
+.now-playing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  min-width: 14em;
+}
+.now-playing-label {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+.now-playing-freq {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+.now-playing.playing {
+  border-color: var(--color-navy);
+  background: var(--color-accent-bg);
+}
+.now-playing.playing .now-playing-freq {
+  color: var(--color-navy-dark);
+}
+
+/* ---------------- 模態按鈕 ---------------- */
+
+.mode-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9.5em, 1fr));
+  gap: 0.9rem;
+  width: 100%;
+}
+
+.mode-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.1rem 0.6rem;
+  background: #fff;
+  color: var(--color-navy-dark);
+  border: 2px solid var(--color-navy);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.mode-btn:hover { background: var(--color-accent-bg); }
+.mode-btn:active { background: var(--color-navy); color: #fff; }
+.mode-btn.active {
+  background: var(--color-navy);
+  border-color: var(--color-navy-dark);
+  color: #fff;
+}
+.mode-n { font-size: 1.15rem; font-weight: 600; }
+.mode-freq { font-size: 1.4rem; font-weight: 700; }
+
+/* ---------------- 播放控制 ---------------- */
+
+.transport {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.stop-btn {
+  background: var(--color-navy);
+  color: #fff;
+  border: 1px solid var(--color-navy-dark);
+  border-radius: 6px;
+  padding: 0.7em 1.6em;
+  font-size: 1.15rem;
+  cursor: pointer;
+}
+.stop-btn:hover:not(:disabled) { background: var(--color-navy-dark); }
+.stop-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.volume-control {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.volume-control input[type="range"] {
+  width: 12em;
+  accent-color: var(--color-navy);
+}
+#out-volume { min-width: 3.2em; color: var(--color-text-muted); }
+
+.hint {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .now-playing-freq { font-size: 2.3rem; }
+  .mode-grid { grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr)); }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14181c;
+    --color-surface: #1c2126;
+    --color-border: #3a4046;
+    --color-text: #e6e8ea;
+    --color-text-muted: #9aa1a8;
+    --color-navy: #4a7ab5;
+    --color-navy-dark: #2f5580;
+    --color-accent-bg: #23384d;
+  }
+  .mode-btn { background: #1a1f24; }
+}

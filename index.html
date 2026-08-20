@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>看得見的聲音</title>
+<meta name="description" content="科普列車現場用克拉尼圖形訊號源：不鏽鋼 25×25 cm、0.8 mm 板，第2～8模態播放">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>看得見的聲音</h1>
+  <p class="plate-spec">不鏽鋼板　25 × 25 cm　厚 0.8 mm</p>
+</header>
+
+<main id="app">
+
+  <div class="now-playing" id="now-playing">
+    <span class="now-playing-label">目前頻率</span>
+    <span class="now-playing-freq" id="out-freq">— Hz</span>
+  </div>
+
+  <section class="mode-grid" id="mode-grid" aria-label="模態選擇">
+    <!-- 按鈕由 js/main.js 動態產生 -->
+  </section>
+
+  <section class="transport">
+    <button id="btn-stop" type="button" class="stop-btn" disabled>■ 停止</button>
+    <div class="volume-control">
+      <label for="rng-volume">音量</label>
+      <input type="range" id="rng-volume" min="0" max="0.85" step="0.01">
+      <span id="out-volume" class="mono">30%</span>
+    </div>
+  </section>
+
+  <p class="hint">點擊模態按鈕即播放對應頻率　·　按空白鍵可立即停止</p>
+
+</main>
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
