@@ -12,6 +12,7 @@
 <header class="topbar">
   <h1>看得見的聲音</h1>
   <p class="plate-spec">不鏽鋼板　25 × 25 cm　厚 0.8 mm</p>
+  <button id="btn-adjust" type="button" class="adjust-toggle" aria-expanded="false" aria-controls="adjust-panel">調整</button>
 </header>
 
 <main id="app">
@@ -23,6 +24,17 @@
 
   <section class="mode-grid" id="mode-grid" aria-label="模態選擇">
     <!-- 按鈕由 js/main.js 動態產生 -->
+  </section>
+
+  <section class="adjust-panel" id="adjust-panel" aria-label="頻率微調" hidden>
+    <div class="adjust-head">
+      <h2>頻率微調</h2>
+      <button id="btn-adjust-reset" type="button" class="adjust-reset">恢復預設</button>
+    </div>
+    <div class="adjust-list" id="adjust-list">
+      <!-- 由 js/main.js 動態產生 -->
+    </div>
+    <p class="adjust-note">調整值會儲存在本機瀏覽器；播放中調整會即時套用。</p>
   </section>
 
   <section class="transport">

@@ -1,7 +1,7 @@
 // sw.js — Service Worker 離線快取
 //
 // 修改任何靜態資源後，記得把 CACHE_NAME 版本號往上加，否則使用者會一直吃到舊快取。
-const CACHE_NAME = "chladni-v2";
+const CACHE_NAME = "chladni-v3";
 
 const PRECACHE_URLS = [
   "./",

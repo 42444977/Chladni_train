@@ -45,6 +45,7 @@ button { font-family: inherit; font-size: inherit; }
 /* ---------------- 版面骨架 ---------------- */
 
 .topbar {
+  position: relative;
   text-align: center;
   padding: 1.5rem 1rem 1.2rem;
   border-bottom: 2px solid var(--color-navy-dark);
@@ -66,6 +67,91 @@ button { font-family: inherit; font-size: inherit; }
   align-items: center;
   gap: 1.75rem;
 }
+
+.adjust-toggle {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  color: var(--color-navy-dark);
+  border: 1px solid var(--color-navy);
+  border-radius: 6px;
+  padding: 0.35em 1em;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.adjust-toggle:hover { background: var(--color-accent-bg); }
+.adjust-toggle.active { background: var(--color-navy); color: #fff; }
+
+/* ---------------- 頻率微調 ---------------- */
+
+.adjust-panel {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  padding: 1rem 1.25rem;
+}
+.adjust-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.adjust-head h2 {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-navy-dark);
+  margin: 0;
+}
+.adjust-reset {
+  background: transparent;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.25em 0.9em;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.adjust-reset:hover { color: var(--color-text); border-color: var(--color-text-muted); }
+.adjust-list { display: flex; flex-direction: column; gap: 0.4rem; }
+.adjust-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+.adjust-label { min-width: 5.5em; font-weight: 600; color: var(--color-navy-dark); }
+.adjust-value {
+  min-width: 5.5em;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+.adjust-step {
+  min-width: 2.8em;
+  background: var(--color-bg);
+  color: var(--color-navy-dark);
+  border: 1px solid var(--color-navy);
+  border-radius: 6px;
+  padding: 0.2em 0.5em;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.adjust-step:hover { background: var(--color-accent-bg); }
+.adjust-base {
+  margin-left: 0.4rem;
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+.adjust-base.changed { color: var(--color-navy); }
+.adjust-note { margin: 0.6rem 0 0; color: var(--color-text-muted); font-size: 0.85rem; }
+
+.mode-btn.adjusted .mode-freq { text-decoration: underline dotted; text-underline-offset: 0.2em; }
 
 /* ---------------- 目前頻率 ---------------- */
 
@@ -170,6 +256,7 @@ button { font-family: inherit; font-size: inherit; }
 }
 
 @media (max-width: 480px) {
+  .topbar { padding-top: 3rem; }
   .now-playing-freq { font-size: 2.3rem; }
   .mode-grid { grid-template-columns: repeat(auto-fit, minmax(7.5em, 1fr)); }
 }
