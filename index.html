@@ -12,6 +12,7 @@
 <header class="topbar">
   <h1>看得見的聲音</h1>
   <p class="plate-spec">不鏽鋼板　25 × 25 cm　厚 0.8 mm</p>
+  <button id="btn-ref" type="button" class="ref-toggle" aria-haspopup="dialog">對照圖</button>
   <button id="btn-adjust" type="button" class="adjust-toggle" aria-expanded="false" aria-controls="adjust-panel">調整</button>
 </header>
 
@@ -49,6 +50,13 @@
   <p class="hint">點擊模態按鈕即播放對應頻率　·　按空白鍵可立即停止</p>
 
 </main>
+
+<div class="ref-overlay" id="ref-overlay" role="dialog" aria-modal="true" aria-label="模態對照圖" hidden>
+  <div class="ref-box">
+    <button id="btn-ref-close" type="button" class="ref-close">關閉</button>
+    <img src="./img/對照圖.png" alt="第2～8模態：模擬節線圖與實驗克拉尼圖形對照">
+  </div>
+</div>
 
 <script type="module" src="./js/main.js"></script>
 </body>

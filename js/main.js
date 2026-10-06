@@ -105,6 +105,13 @@ btnAdjust.addEventListener("click", () => {
   btnAdjust.setAttribute("aria-expanded", String(open));
 });
 
+const refOverlay = document.getElementById("ref-overlay");
+const setRef = (open) => { refOverlay.hidden = !open; };
+document.getElementById("btn-ref").addEventListener("click", () => setRef(true));
+document.getElementById("btn-ref-close").addEventListener("click", () => setRef(false));
+refOverlay.addEventListener("click", (e) => { if (e.target === refOverlay) setRef(false); });
+window.addEventListener("keydown", (e) => { if (e.key === "Escape") setRef(false); });
+
 btnAdjustReset.addEventListener("click", () => {
   for (const mode of MODES) mode.freq = mode.base;
   saveOverrides();

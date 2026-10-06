@@ -68,7 +68,7 @@ button { font-family: inherit; font-size: inherit; }
   gap: 1.75rem;
 }
 
-.adjust-toggle {
+.adjust-toggle, .ref-toggle {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -80,8 +80,45 @@ button { font-family: inherit; font-size: inherit; }
   font-size: 0.95rem;
   cursor: pointer;
 }
-.adjust-toggle:hover { background: var(--color-accent-bg); }
+.ref-toggle { right: auto; left: 1rem; }
+.adjust-toggle:hover, .ref-toggle:hover { background: var(--color-accent-bg); }
 .adjust-toggle.active { background: var(--color-navy); color: #fff; }
+
+/* ---------------- 對照圖 ---------------- */
+
+.ref-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(30, 36, 48, 0.75);
+}
+.ref-overlay[hidden] { display: none; }
+.ref-box {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 2.8rem 1rem 1rem;
+}
+.ref-box img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.ref-close {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.8rem;
+  background: transparent;
+  color: var(--color-navy-dark);
+  border: 1px solid var(--color-navy);
+  border-radius: 6px;
+  padding: 0.25em 0.9em;
+  cursor: pointer;
+}
+.ref-close:hover { background: var(--color-accent-bg); }
 
 /* ---------------- 頻率微調 ---------------- */
 
