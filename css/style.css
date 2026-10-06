@@ -99,14 +99,14 @@ button { font-family: inherit; font-size: inherit; }
 .ref-overlay[hidden] { display: none; }
 .ref-box {
   position: relative;
-  max-width: 100%;
-  max-height: 100%;
-  overflow: auto;
+  width: 80vw;
+  height: 80vh;
+  display: flex;
   background: #fff;
   border-radius: 10px;
   padding: 2.8rem 1rem 1rem;
 }
-.ref-box img { display: block; max-width: 100%; height: auto; margin: 0 auto; }
+.ref-box img { display: block; flex: 1; min-width: 0; min-height: 0; object-fit: contain; }
 .ref-close {
   position: absolute;
   top: 0.6rem;
